@@ -2,6 +2,10 @@ package com.gotprint.notesservice.rest.output.json;
 
 import java.io.Serializable;
 
+/**
+ * @author Rajesh Rawat
+ *
+ */
 public class Result implements Serializable {
 
 	/**

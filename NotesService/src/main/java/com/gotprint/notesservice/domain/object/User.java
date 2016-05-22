@@ -11,6 +11,10 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+/**
+ * @author Rajesh Rawat
+ *
+ */
 @Entity
 @Table
 public class User extends BaseEntity {

@@ -5,6 +5,18 @@
 	<artifactId>NotesService</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
+	<build>
+		<finalName>NotesService</finalName>
+		<plugins>
+			<plugin>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>2.6</version>
+				<configuration>
+					<appendAssemblyId>false</appendAssemblyId>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
 	<dependencies>
 		<dependency>
 			<groupId>com.sun.jersey</groupId>
@@ -25,6 +37,16 @@
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 			<version>5.1.37</version>
+		</dependency>
+		<dependency>
+			<groupId>com.owlike</groupId>
+			<artifactId>genson</artifactId>
+			<version>0.98</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<version>2.3</version>
 		</dependency>
 	</dependencies>
 </project>

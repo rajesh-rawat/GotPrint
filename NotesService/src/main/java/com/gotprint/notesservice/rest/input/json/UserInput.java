@@ -2,6 +2,10 @@ package com.gotprint.notesservice.rest.input.json;
 
 import java.io.Serializable;
 
+/**
+ * @author Rajesh Rawat
+ *
+ */
 public class UserInput implements Serializable {
 
 	/**

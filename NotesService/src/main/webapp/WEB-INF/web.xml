@@ -21,4 +21,12 @@ http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
 	<url-pattern>/rest/*</url-pattern>
 </servlet-mapping>
 
+<filter>
+    <filter-name>BasicAuthenticationFilter</filter-name>
+    <filter-class>com.gotprint.notesservice.auth.basic.filter.BasicAuthenticationFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>BasicAuthenticationFilter</filter-name>
+    <url-pattern>/rest/*</url-pattern>
+  </filter-mapping>
 </web-app>

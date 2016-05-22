@@ -11,6 +11,14 @@ import org.hibernate.cfg.Configuration;
 
 import com.gotprint.notesservice.domain.object.Persistable;
 
+/**
+ * @author Rajesh Rawat
+ * Base Dao which has basic operations like 
+ * a) Session creation/end
+ * b) Transaction creation/commit/rollback
+ * c) SessionFactory creation 
+ *
+ */
 public class BaseDao {
 
 	private Session currentSession;

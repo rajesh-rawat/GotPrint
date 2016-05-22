@@ -10,6 +10,10 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.GenericGenerator;
 
+/**
+ * @author Rajesh Rawat
+ *
+ */
 @Entity
 @Table
 public class Note extends BaseEntity {

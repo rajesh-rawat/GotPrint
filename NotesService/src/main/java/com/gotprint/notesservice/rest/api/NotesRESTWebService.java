@@ -24,6 +24,18 @@ import com.gotprint.notesservice.rest.input.json.UserInput;
 import com.gotprint.notesservice.rest.output.json.Result;
 import com.gotprint.notesservice.service.DaoService;
 
+/**
+ * @author Rajesh Rawat
+ *
+ * REST Webservice for CRUD operations for Notes associated to the user
+ * C - Create
+ * R - Read
+ * U - Update
+ * D - Delete
+ * Validation is done for business Exceptions
+ * JSON is the supported input and output type
+ * 
+ */
 @Path("notes")
 public class NotesRESTWebService {
 
@@ -37,6 +49,7 @@ public class NotesRESTWebService {
 			DaoService service = new DaoService();
 			Note n = validateAndPrepare(input);
 
+			Validator.vaidateOperationAccess(authString, n);
 			service.addNote(n);
 		} catch (BusinessException e) {
 			r.setStatus(Constants.STATUS_FAILURE);
@@ -57,6 +70,7 @@ public class NotesRESTWebService {
 		try {
 			DaoService service = new DaoService();
 			Note n = validateAndPrepare(input);
+			Validator.vaidateOperationAccess(authString, n);
 			service.updateNote(n);
 		} catch (BusinessException e) {
 			r.setStatus(Constants.STATUS_FAILURE);
@@ -74,10 +88,12 @@ public class NotesRESTWebService {
 	public Response read(@PathParam("id") long id) {
 		Result r = new Result();
 		Note note = null;
-		DaoService service = new DaoService();
-		note = service.getNoteById(id);
-		if (note==null) {
+		try {
+			DaoService service = new DaoService();
+			note = service.getNoteById(id);
+		} catch (BusinessException e) {
 			r.setStatus(Constants.STATUS_FAILURE);
+			r.setMessage(e.getMessage());
 			return Response.status(404).entity(r).build();
 		}
 		r.setStatus(Constants.STATUS_SUCCESS);
@@ -94,6 +110,7 @@ public class NotesRESTWebService {
 		try {
 			DaoService service = new DaoService();
 			Note n = validateAndPrepare(input);
+			Validator.vaidateOperationAccess(authString, n);
 			service.deleteNote(n);
 		} catch (BusinessException e) {
 			r.setStatus(Constants.STATUS_FAILURE);

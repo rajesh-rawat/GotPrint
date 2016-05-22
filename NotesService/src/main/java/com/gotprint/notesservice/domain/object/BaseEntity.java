@@ -2,6 +2,10 @@ package com.gotprint.notesservice.domain.object;
 
 import java.sql.Timestamp;
 
+/**
+ * @author Rajesh Rawat
+ *
+ */
 public class BaseEntity implements Persistable{
 
 	/**

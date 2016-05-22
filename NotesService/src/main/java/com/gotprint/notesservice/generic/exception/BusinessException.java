@@ -1,5 +1,9 @@
 package com.gotprint.notesservice.generic.exception;
 
+/**
+ * @author Rajesh Rawat
+ *
+ */
 public class BusinessException extends Exception {
 
 	/**
